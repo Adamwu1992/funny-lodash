@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="https://cdn.bootcss.com/lodash.js/4.17.11/lodash.js"></script>
+</head>
+<body>
+<script>
+const debounce = _.debounce
+const throttle = _.throttle
+let index = 0
+const f = debounce(function() {
+  index += 1
+  console.log('invoke', index)
+}, 100, {
+  maxWait: 10
+})
+
+let throttleIndex = 0
+const ff = throttle(function() {
+  console.log('invoke in throttle')
+  throttleIndex += 1
+}, 100)
+
+let times = 0
+const t = () => {
+  f()
+  // ff()
+  console.log('in loop', index, throttleIndex)
+  times++
+  if (times < 100) {
+    setTimeout(t, 10)
+  } else {
+    console.log('loop end', index)
+    console.timeEnd('debounce')
+  }
+}
+console.time('debounce')
+t()
+
+</script>
+</body>
+</html>
