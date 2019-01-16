@@ -2,6 +2,10 @@ import debounce from '../debounce'
 // import _ from 'lodash'
 // const debounce = _.debounce
 
+/**
+ * options is default
+ */
+
 describe('debounce:', () => {
   let run, f
 

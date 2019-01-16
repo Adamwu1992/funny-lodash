@@ -2,6 +2,14 @@ import debounce from '../debounce'
 // import _ from 'lodash'
 // const debounce = _.debounce
 
+/**
+ * `
+ * options = {
+ *   leading: true
+ * }
+ * `
+ */
+
 describe('debounce: when `options.leading` is `true`', () => {
 
   let run, f

@@ -1,3 +1,4 @@
+import root from '../.internal/root'
 
 /**
  * @debounce
@@ -69,11 +70,20 @@ export default function debounce(func, wait, options) {
     return result
   }
 
+  const useRAF = (!wait && wait !== 0 && typeof root.requestAnimationFrame === 'function')
+
   function startTimer(pendingFunc, wait) {
+    if(useRAF) {
+      return root.requestAnimationFrame(pendingFunc)
+    }
     return setTimeout(pendingFunc, wait)
   }
 
   function cancelTimer(id) {
+    if(useRAF) {
+      root.cancelAnimationFrame(id)
+      return
+    }
     clearTimeout(id)
   }
 

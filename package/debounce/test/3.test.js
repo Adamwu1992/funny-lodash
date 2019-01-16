@@ -2,6 +2,15 @@ import debounce from '../debounce'
 // import _ from 'lodash'
 // const debounce = _.debounce
 
+
+/**
+ * `
+ * options = {
+ *   trailing: false
+ * }
+ * `
+ */
+
 describe('debounce: when `options.trailing` is `false`', () => {
   let run, f
 
