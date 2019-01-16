@@ -1,21 +1,10 @@
-import root from '../.internal/root'
-
 /**
  * @debounce
  * inspired by https://github.com/lodash/lodash/blob/master/debounce.js
  */
 
-function needFunc() {
-  throw new TypeError('Expected a function')
-}
-
-function isFunction(x) {
-  return typeof x === 'function'
-}
-
-function isObject(x) {
-  return x && typeof x === 'object'
-}
+import root from '../.internal/root'
+import { needFunc, isFunction, isObject } from '../.internal/utils'
 
 /**
  * 
