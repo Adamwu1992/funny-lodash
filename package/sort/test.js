@@ -1,15 +1,15 @@
-import {
-  bubble,
-  bubble2
-} from './index'
+import bubble from './bubble'
+import select from './select'
 
 const suite = (arr, res) => {
-  const desc = `[${arr.toString()}]`
-  it(desc, () => {
+  it(`Bubble: [${arr.toString()}]`, () => {
     const r = bubble(arr)
-    const r2 = bubble2(arr)
     expect(r).toEqual(res)
-    expect(r2).toEqual(res)
+  })
+
+  it(`Select: [${arr.toString()}]`, () => {
+    const r = select(arr)
+    expect(r).toEqual(res)
   })
 }
 
